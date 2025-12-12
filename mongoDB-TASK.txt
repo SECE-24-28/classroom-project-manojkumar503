@@ -1,0 +1,29 @@
+1.  Create a database 
+           use college
+
+2.  Create a collection 
+          db.createCollection(“students”)
+
+3.  Insert 5 data records 
+        db.students.insertMany([
+   { name: “Manoj”, age: 22, city: “Chennai” },
+   { name: “Akash”, age: 17, city:“Madurai” },
+   { name: “Sara”, age: 25, city: “Coimbatore” },
+   { name:“Vijay”, age: 19, city: “Salem” },
+   { name: “Anu”, age: 16, city:“Trichy” }
+     ])
+
+4.  Read the data 
+          db.students.find()
+
+5.  Update the age to 30 
+          db.students.updateMany({}, { $set: { age:30 } })
+
+6.  Find records with age greater than 18 and update age to 20 
+          db.students.updateMany( { age: { $gt: 18 } }, { $set: { age: 20 } })
+
+7.  Update one value of name 
+          db.students.updateOne( { name: “Akash”}, { $set: { name: “Akhil” } } )
+
+8.  Delete one record 
+           db.students.deleteOne({ name: “Anu” })
